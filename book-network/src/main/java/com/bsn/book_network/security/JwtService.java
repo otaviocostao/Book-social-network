@@ -25,7 +25,7 @@ public class JwtService {
     @Value("%{application.security.jwt.secret-key}")
     private String secretKey;
 
-    private String extractUsername(String token) {
+    String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -78,7 +78,6 @@ public class JwtService {
     }
 
     private Date extractExpiration(String token) {
-
         return extractClaim(token, Claims::getExpiration);
     }
 
